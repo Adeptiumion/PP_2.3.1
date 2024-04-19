@@ -1,48 +1,46 @@
 package pp_2_3_1.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import pp_2_3_1.dao.UserDao;
 import pp_2_3_1.model.User;
-import pp_2_3_1.repository.UsersRepository;
-
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @Transactional(readOnly = true)
 public class UserService {
-    private final UsersRepository usersRepository;
+    private final UserDao userDao;
 
-    @Autowired
-    public UserService(UsersRepository usersRepository) {
-        this.usersRepository = usersRepository;
+    public UserService(UserDao userDao) {
+        this.userDao = userDao;
     }
+
 
     @Transactional
     public void create(User user) {
-        usersRepository.save(user);
+        userDao.create(user);
     }
 
     public List<User> readAll() {
-        return usersRepository.findAll();
+        return userDao.readAll();
     }
 
     public User readOne(int id) {
-        Optional<User> foundUser = usersRepository.findById(id);
-        return foundUser.orElse(null);
+        return userDao.readOne(id);
     }
 
     @Transactional
-    public void update(int id, User updatedUser) {
-        updatedUser.setId(id);
-        usersRepository.save(updatedUser);
-    }
+    public void update(int id,User updatedUser) {
+        userDao.update(id, updatedUser);
 
+    }
     @Transactional
     public void delete(int id) {
-        usersRepository.deleteById(id);
+        userDao.delete(id);
     }
 
-
+    @Transactional
+    public void truncateAll(){
+        userDao.truncateAll();
+    }
 }

@@ -5,7 +5,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -19,7 +18,6 @@ import java.util.Properties;
 @Configuration
 @PropertySource("classpath:hibernate.properties")
 @EnableTransactionManagement
-@EnableJpaRepositories("pp_2_3_1.repository")
 public class HibernateConfig {
     private final Environment env;
 

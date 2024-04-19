@@ -10,11 +10,15 @@ public class MVCConfig extends AbstractAnnotationConfigDispatcherServletInitiali
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class[]{SpringConfig.class};
+        return new Class[]
+                {
+                        SpringConfig.class
+                };
     }
 
     @Override
     protected String[] getServletMappings() {
         return new String[]{"/"};
     }
+
 }

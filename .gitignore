@@ -38,6 +38,7 @@ build/
 .DS_Store
 
 .idea
+src/main/java/pp_2_3_1/main
 src/main/java/pp_2_3_1/sql
 src/main/java/pp_2_3_1/schema
 /apache-tomcat-11.0.0-M18

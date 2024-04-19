@@ -15,9 +15,14 @@
 <div class="centralization">
     <a th:href="@{/users/create_user}" class="link">
         <div class="sumbit_block">
-            create new user button
+            Создать нового пользователя
         </div>
     </a>
 </div>
+<form th:method="POST" th:action="@{/users/truncate_all}">
+    <div class="centralization">
+        <button class="sumbit_block" type="submit">Очистить базу данных</button>
+    </div>
+</form>
 </body>
 </html>
