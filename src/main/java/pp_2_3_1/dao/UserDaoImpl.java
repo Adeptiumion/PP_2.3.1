@@ -58,7 +58,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void truncateAll() {
-        System.out.println("!!!START TRUNCATE DATA BASE OF USERS!!!");
         entityManager.createNativeQuery("truncate table user").executeUpdate();
+        entityManager.flush();
     }
 }
